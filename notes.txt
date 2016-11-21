@@ -1,0 +1,12 @@
+mk-credentials didn't work on OSX after installing tinc
+Used a Linux 15.10 vm, apt-get install tincd first
+Needs golang for loads of things, for example cfssl (cloudflare ssl)
+install golang-go didn't work, go too old. got golang 1.7 and installed to 
+go get -u github.com/cloudflare/cfssl/cmd/cfssl
+go get -u github.com/cloudflare/cfsssl/cmd/cfssljson
+
+install packer and terraform
+run make -C packer (gives you an image id)
+go to the tf directory, generate ssh-keypair ssh-keygen -f rsa
+run ./terraform apply -var cluster_state=new 'image="<IMG ID>"' where IMG ID is obtained when you run packer to build the image.
+
