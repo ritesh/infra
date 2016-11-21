@@ -10,3 +10,5 @@ run make -C packer (gives you an image id)
 go to the tf directory, generate ssh-keypair ssh-keygen -f rsa
 run ./terraform apply -var cluster_state=new 'image="<IMG ID>"' where IMG ID is obtained when you run packer to build the image.
 
+this locks up after a while, not sure if digitalocean bug or terraform bug
+
